@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#171923" />
+  <title>Ruang — Komunitas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">R</span><span>ruang<span class="brand-dot">.</span></span></a>
+    <nav><a href="#feed">Jelajahi</a><button id="accountBtn" class="account-btn">Masuk / Daftar</button></nav>
+  </header>
+
+  <main class="layout">
+    <section class="intro">
+      <div class="eyebrow"><span class="pulse"></span> TEMPAT UNTUK BERBAGI</div>
+      <h1>Setiap orang punya<br><span>cerita.</span></h1>
+      <p>Kenalan, bagikan pemikiran, dan temukan cerita dari orang lain dalam satu ruang.</p>
+      <button class="primary-btn" id="heroJoin">Mulai bergabung <span>↗</span></button>
+      <div class="mini-note"><span class="mini-avatars">● ● ●</span> Sebuah ruang untuk semua orang</div>
+    </section>
+
+    <aside class="profile-card" id="profileCard">
+      <div class="card-top"><span>PROFIL KAMU</span><span class="online-dot">● ONLINE</span></div>
+      <div id="profileContent" class="profile-empty">
+        <div class="avatar-placeholder">?</div>
+        <h3>Belum masuk</h3>
+        <p>Buat akun untuk memiliki profil dan mulai berbagi.</p>
+        <button class="outline-btn" id="profileJoin">Buat akun</button>
+      </div>
+    </aside>
+
+    <section class="feed-section" id="feed">
+      <div class="feed-heading">
+        <div><div class="eyebrow">KABAR TERBARU</div><h2>Ruang publik</h2></div>
+        <span class="feed-tag">POSTINGAN KOMUNITAS</span>
+      </div>
+      <div id="composer" class="composer hidden">
+        <div class="composer-user" id="composerAvatar"></div>
+        <div class="composer-main">
+          <textarea id="postContent" maxlength="2000" placeholder="Apa yang ingin kamu bagikan?"></textarea>
+          <div class="composer-actions"><span id="charCount">0 / 2000</span><button class="primary-btn small" id="postBtn">Terbitkan ↗</button></div>
+        </div>
+      </div>
+      <div id="feedList" class="feed-list"><div class="loading">Memuat cerita...</div></div>
+    </section>
+  </main>
+
+  <footer><span class="brand small-brand"><span class="brand-mark">R</span> ruang.</span><span>Dibuat untuk berbagi cerita.</span></footer>
+
+  <div class="modal hidden" id="authModal">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-panel">
+      <button class="modal-close" data-close="true">×</button>
+      <div class="eyebrow">SELAMAT DATANG DI RUANG</div>
+      <h2 id="authTitle">Buat akun baru</h2>
+      <p id="authSubtitle">Pilih nama pengguna dan password untuk mulai bergabung.</p>
+      <div class="tabs"><button class="tab active" id="registerTab">Daftar</button><button class="tab" id="loginTab">Masuk</button></div>
+      <form id="authForm">
+        <label>Nama pengguna<input id="username" autocomplete="username" minlength="3" maxlength="20" placeholder="contoh: azre_17" required></label>
+        <label>Password<input id="password" type="password" autocomplete="new-password" minlength="8" placeholder="Minimal 8 karakter" required></label>
+        <button class="primary-btn full" id="authSubmit">Buat akun ↗</button>
+        <div class="form-message" id="authMessage"></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="editModal">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-panel">
+      <button class="modal-close" data-close="true">×</button>
+      <div class="eyebrow">IDENTITASMU</div><h2>Edit profil</h2>
+      <form id="profileForm">
+        <label>Foto profil<input type="file" id="avatarInput" accept="image/png,image/jpeg,image/webp,image/gif"></label>
+        <label>Deskripsi singkat<textarea id="descriptionInput" maxlength="300" placeholder="Ceritakan sedikit tentang dirimu..."></textarea></label>
+        <button class="primary-btn full">Simpan perubahan ↗</button>
+        <div class="form-message" id="profileMessage"></div>
+      </form>
+    </div>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
